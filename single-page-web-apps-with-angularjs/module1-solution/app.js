@@ -6,20 +6,33 @@
   .controller('LunchCheckController', function ($scope) {
     $scope.lunchList = "";
     $scope.result = "";
+    $scope.class = "alert-info";
+    $scope.hide = true;
 
     $scope.checkLunch= function(){
       if($scope.lunchList.length == 0){
-        $scope.result = "Please enter data first";
+        alert("Please enter data first","alert-info")
         return;
       }
 
       var listLenght = $scope.lunchList.split(',');
       if(listLenght.length > 3){
-        $scope.result = "To much";
+          alert("To much","alert-danger")
       }else{
-        $scope.result = "Enjoy!";
+          alert("Enjoy!","alert-success")
       }
     }
+
+    $scope.clear = function(){
+      $scope.hide = true;
+    }
+
+    function alert(msg, severity) {
+      $scope.result = msg;
+      $scope.class = severity;
+      $scope.hide = false;
+    }
+
   });
 
 })();
