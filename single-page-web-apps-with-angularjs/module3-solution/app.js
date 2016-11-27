@@ -5,7 +5,7 @@
         .controller('RestaurantSearchController', RestaurantSearchController)
         .service('MenuClientService', MenuClientService)
         .directive('foundItems', FoundItemsDirective)
-        .constant('ApiBaseUrl', "http://davids-restaurant.herokuapp.com");
+        .constant('ApiBaseUrl', "https://davids-restaurant.herokuapp.com");
 
     RestaurantSearchController.$inject = ['MenuClientService'];
 
@@ -34,10 +34,6 @@
 
         search.removeItem = function (idx) {
             search.found.splice(idx, 1);
-        };
-
-        search.isEmpty = function () {
-            return search.found != undefined && search.found.length == 0
         };
     }
 
