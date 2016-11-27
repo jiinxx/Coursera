@@ -1,0 +1,12 @@
+<div class="panel panel-default" ng-show="list.foundItems">
+    <div class="panel-heading">
+        <h3 class="panel-title">Found items</h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="item in list.foundItems">
+            {{item.short_name}}, {{item.name}}, {{item.description}}
+            <button ng-click="list.onRemove($index)" class="btn btn-xs btn-default" style="float:right">Don't want this one!</button>
+        </li>
+    </ul>
+</div>
+<div class="emptyMessage" ng-show="list.isEmpty()">Nothing found</div>
