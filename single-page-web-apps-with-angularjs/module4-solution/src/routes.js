@@ -17,5 +17,10 @@
                 url: '/',
                 templateUrl: 'src/menuapp/templates/home.template.html'
             })
+
+            .state('categories',{
+              url: '/categories',
+              templateUrl: 'src/data/templates/categories.template.html'
+            })
     }
 })();
