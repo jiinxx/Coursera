@@ -20,7 +20,14 @@
 
             .state('categories',{
               url: '/categories',
-              templateUrl: 'src/data/templates/categories.template.html'
+              templateUrl: 'src/data/templates/categories.template.html',
+              controller: 'MenuDataController as menuList',
+              resolve: {
+                item: ['$stateParams', 'MenuDataService',
+                  function ($stateParams, MenuDataService) {
+                    return MenuDataService.getAllCategories();
+                  }]
+                }
             })
     }
 })();
