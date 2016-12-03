@@ -25,9 +25,7 @@
               resolve: {
                 items: ['MenuDataService',
                   function (MenuDataService) {
-                    var result =  MenuDataService.getAllCategories();
-                    console.log('result: ',result);
-                    return result;
+                    return  MenuDataService.getAllCategories();
                   }]
                 }
             })
@@ -38,7 +36,8 @@
               controller: 'ItemController as ctrl',
               resolve: {
                 items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
-                  return MenuDataService.getItemsForCategory($stateParams.category);
+                  var result = MenuDataService.getItemsForCategory($stateParams.category);
+                  return result;
                 }]
               }
             })

@@ -23,11 +23,6 @@
     };
 
     service.getItemsForCategory = function(categoryShortName){
-      // return $http({
-      //     method: "GET",
-      //     url: ("https://davids-restaurant.herokuapp.com/menu_items.json?category=" + categoryShortName)
-      //   });
-
       return $q(function(resolve, reject) {
         var result = $http({
             method: "GET",
@@ -39,7 +34,7 @@
             reject('Categorylist fetch failed');
           })
      });
-
     };
+
   };
 })();
