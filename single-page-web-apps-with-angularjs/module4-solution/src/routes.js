@@ -15,17 +15,19 @@
         // Home page
             .state('home', {
                 url: '/',
-                templateUrl: 'src/menuapp/templates/home.template.html'
+                templateUrl: 'src/templates/home.template.html'
             })
 
             .state('categories',{
               url: '/categories',
-              templateUrl: 'src/data/templates/categories.template.html',
-              controller: 'MenuDataController as menuList',
+              templateUrl: 'src/templates/categories.template.html',
+              controller: 'CategoryListController as ctrl',
               resolve: {
-                item: ['$stateParams', 'MenuDataService',
-                  function ($stateParams, MenuDataService) {
-                    return MenuDataService.getAllCategories();
+                items: ['MenuDataService',
+                  function (MenuDataService) {
+                    var result =  MenuDataService.getAllCategories();
+                    console.log('result: ',result);
+                    return result;
                   }]
                 }
             })
