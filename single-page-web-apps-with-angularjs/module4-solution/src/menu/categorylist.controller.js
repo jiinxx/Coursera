@@ -1,7 +1,7 @@
 (function () {
 'use strict';
 
-angular.module('MenuApp')
+angular.module('Menu')
 .controller('CategoryListController', CategoryListController);
 
 

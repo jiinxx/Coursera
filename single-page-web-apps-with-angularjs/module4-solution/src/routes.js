@@ -15,12 +15,12 @@
         // Home page
             .state('home', {
                 url: '/',
-                templateUrl: 'src/templates/home.template.html'
+                templateUrl: 'src/menuapp/templates/home.template.html'
             })
 
             .state('categories',{
               url: '/categories',
-              templateUrl: 'src/templates/categories.template.html',
+              templateUrl: 'src/menu/templates/categories.template.html',
               controller: 'CategoryListController as ctrl',
               resolve: {
                 items: ['MenuDataService',
@@ -30,6 +30,17 @@
                     return result;
                   }]
                 }
+            })
+
+            .state('items',{
+              url: '/items/{category}',
+              templateUrl: 'src/menu/templates/items.template.html',
+              controller: 'ItemController as ctrl',
+              resolve: {
+                items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+                  return MenuDataService.getItemsForCategory($stateParams.category);
+                }]
+              }
             })
     }
 })();
