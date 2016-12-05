@@ -30,6 +30,10 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
+    .state('public.myinfo',{
+      url: '/myinfo',
+      template: '<h1>My Info</h1>'
+    })
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',
