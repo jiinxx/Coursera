@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <span>Signup</span>
+            <fieldset ng-controller="SignupController as reg">
+                <form name="regForm" novalidate>
+                    <div class="form-group">
+                        <label for="inputFirstName">First name</label>
+                        <input name="firstname" type="text" class="form-control" id="inputFirstName" placeholder="Enter first name" ng-model="reg.user.firstname" required minlength="4" ng-maxlength="10">
+                        <span ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+                           Username must be at least 4 characters long
+                         </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLastName">Last name</label>
+                        <input name="lastname" type="text" class="form-control" id="inputLastName" placeholder="Enter last name" ng-model="reg.user.lastname" required minlength="4" ng-maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email address</label>
+                        <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Enter email" ng-model="reg.user.email" required>
+                        <span ng-if="regForm.email.$invalid && regForm.email.$touched">Must be a valid email address: handle@domain format</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone number</label>
+                        <input name="phone" type="text" class="form-control" id="inputPhone" placeholder="Enter Phone ###-###-####" ng-model="reg.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+                        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+                          Phone must be in the format ###-###-####.
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFavourite"></label>
+                        <input name="favourite" type="text" class="form-control" id="inputFavourite" placeholder="Enter favourite dish" favouritexist ng-model="reg.user.favourite" ng-model-options="{ updateOn: 'blur' }">
+                        <!--div ng-if="regForm.$pending.favouriteExists">checking....</div>
+                        <div ng-if="regForm.$error.favouriteExists">username exists already</div -->
+                        <span ng-if="regForm.favourite.$invalid && regForm.favourite.$touched">
+                          username exists already
+                        </span>
+                    </div>
+                    <button ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button> Form valid? {{ regForm.$valid }}
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
