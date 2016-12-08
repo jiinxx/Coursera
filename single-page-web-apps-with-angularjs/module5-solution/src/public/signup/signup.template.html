@@ -28,13 +28,11 @@
                         </span>
                     </div>
                     <div class="form-group">
-                        <label for="inputFavourite"></label>
+                        <label for="inputFavourite">Favourite dish (optional)</label>
                         <input name="favourite" type="text" class="form-control" id="inputFavourite" placeholder="Enter favourite dish" favouritexist ng-model="reg.user.favourite" ng-model-options="{ updateOn: 'blur' }">
                         <!--div ng-if="regForm.$pending.favouriteExists">checking....</div>
                         <div ng-if="regForm.$error.favouriteExists">username exists already</div -->
-                        <span ng-if="regForm.favourite.$invalid && regForm.favourite.$touched">
-                          username exists already
-                        </span>
+                        <span ng-if="regForm.favourite.$invalid">No such menu number exists</span>
                     </div>
                     <button ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button> Form valid? {{ regForm.$valid }}
                 </form>

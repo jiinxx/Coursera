@@ -1,1 +1,29 @@
-<h3>min info</h3> {{myinfoCtrl.currentUser}}
+<div class="container">
+    <div class="row" ng-if="myinfoCtrl.currentUser">
+        <div class="col-md-4">
+            <h2>Current user</h2>
+            <div>{{myinfoCtrl.currentUser.firstname}}</div>
+            <div>{{myinfoCtrl.currentUser.lastname}}</div>
+            <div>{{myinfoCtrl.currentUser.email}}</div>
+            <div>{{myinfoCtrl.currentUser.phone}}</div>
+            <div ng-if="myinfoCtrl.currentUser.favourite">{{myinfoCtrl.currentUser.favourite}}</div>
+        </div>
+        <div class="col-md-3" ng-if="myinfoCtrl.currentUser.favourite">
+            <h2>Favourite dish</h2>
+            <div>
+                <img ng-src="{{myinfoCtrl.basePath}}/images/{{myinfoCtrl.menuItem.short_name}}.jpg" />
+            </div>
+            <div>
+                <p>
+                    {{myinfoCtrl.menuItem.name}}
+                </p>
+            </div>
+            <div>
+                <p>{{myinfoCtrl.menuItem.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!myinfoCtrl.currentUser">
+        <div>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></div>
+    </div>
+</div>
