@@ -2,11 +2,11 @@
     <div class="row" ng-if="myinfoCtrl.currentUser">
         <div class="col-md-4">
             <h2>Current user</h2>
-            <div>{{myinfoCtrl.currentUser.firstname}}</div>
-            <div>{{myinfoCtrl.currentUser.lastname}}</div>
-            <div>{{myinfoCtrl.currentUser.email}}</div>
-            <div>{{myinfoCtrl.currentUser.phone}}</div>
-            <div ng-if="myinfoCtrl.currentUser.favourite">{{myinfoCtrl.currentUser.favourite}}</div>
+            <div>Firstname: {{myinfoCtrl.currentUser.firstname}}</div>
+            <div>Lastname: {{myinfoCtrl.currentUser.lastname}}</div>
+            <div>Email: {{myinfoCtrl.currentUser.email}}</div>
+            <div>Phone: {{myinfoCtrl.currentUser.phone}}</div>
+            <div ng-if="myinfoCtrl.currentUser.favourite">Favourite: {{myinfoCtrl.currentUser.favourite}}</div>
         </div>
         <div class="col-md-3" ng-if="myinfoCtrl.currentUser.favourite">
             <h2>Favourite dish</h2>
