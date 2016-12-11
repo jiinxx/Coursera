@@ -1,6 +1,3 @@
-// as suggested in stackoverflow thread
-// http: //stackoverflow.com/questions/28717378/angularjs-custom-directive-to-check-if-a-username-exists
-
 (function() {
 
     'use strict'
@@ -30,4 +27,4 @@
             }
         }
     }
-})();;
+})();
