@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="inputLastName">Last name</label>
                         <input name="lastname" type="text" class="form-control" id="inputLastName" placeholder="Enter last name" ng-model="reg.user.lastname" required minlength="4" ng-maxlength="10">
-                        <span ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+                        <span ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
                           Lastname must be 4 to 10 characters logn
                          </span>
                     </div>
