@@ -8,12 +8,15 @@
                         <label for="inputFirstName">First name</label>
                         <input name="firstname" type="text" class="form-control" id="inputFirstName" placeholder="Enter first name" ng-model="reg.user.firstname" required minlength="4" ng-maxlength="10">
                         <span ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
-                           Username must be at least 4 characters long
+                           Firstname must be 4 to 10 characters logn
                          </span>
                     </div>
                     <div class="form-group">
                         <label for="inputLastName">Last name</label>
                         <input name="lastname" type="text" class="form-control" id="inputLastName" placeholder="Enter last name" ng-model="reg.user.lastname" required minlength="4" ng-maxlength="10">
+                        <span ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+                          Lastname must be 4 to 10 characters logn
+                         </span>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail">Email address</label>
@@ -30,11 +33,9 @@
                     <div class="form-group">
                         <label for="inputFavourite">Favourite dish (optional)</label>
                         <input name="favourite" type="text" class="form-control" id="inputFavourite" placeholder="Enter favourite dish" favouritexist ng-model="reg.user.favourite" ng-model-options="{ updateOn: 'blur' }">
-                        <!--div ng-if="regForm.$pending.favouriteExists">checking....</div>
-                        <div ng-if="regForm.$error.favouriteExists">username exists already</div -->
                         <span ng-if="regForm.favourite.$invalid">No such menu number exists</span>
                     </div>
-                    <button ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button> Form valid? {{ regForm.$valid }}
+                    <button ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button>
                 </form>
             </fieldset>
         </div>
