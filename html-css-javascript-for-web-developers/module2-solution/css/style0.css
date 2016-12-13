@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+section {
+  border: 1px solid black;
+  margin: 10px;
+  width: 25%;
+  float: left;
+  background: #ccc;
+}
+section > p {
+  margin-top: 20px;
+}
+
+.title {
+  float:right;
+  border: 1px solid black;
+  margin-top: -1px;
+  margin-right: -1px;
+  width: 100px;
+  height: 25px;
+  padding-top: 4px;
+  text-align:center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.row {
+    width: 100%;
+}
+.chicken {
+  background: #d27979;
+}
+.beef {
+  background: #cc0000;
+}
+.sushi {
+  background: #ffcc99;
+}
