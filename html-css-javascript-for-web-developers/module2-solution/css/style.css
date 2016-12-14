@@ -2,8 +2,13 @@
     box-sizing: border-box;
 }
 
+body {
+  font: normal 14px Verdana, Arial, sans-serif;
+}
+
 h1 {
     margin-bottom: 15px;
+    text-align: center;
 }
 
 section {
@@ -12,10 +17,11 @@ section {
   margin: 10px;
 }
 section > p {
-  margin-top: 20px;
+  margin-top: 28px;
+  padding: 5px;
 }
 
-.title {
+section .title {
   float:right;
   border: 1px solid black;
   margin-top: -1px;
@@ -24,7 +30,7 @@ section > p {
   height: 25px;
   padding-top: 4px;
   text-align:center;
-  font-size: 16px;
+  font-size: 1.1em;
   font-weight: bold;
 }
 .row {
