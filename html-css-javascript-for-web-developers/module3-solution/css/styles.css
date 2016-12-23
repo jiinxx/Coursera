@@ -58,8 +58,8 @@ section p {
 }
 section h3 {
   margin: 0;
+  padding-bottom:
 }
-@media (min-width: 768px) and (max-width: 991px)
-.col-sm-12 {
-    margin-top:10px;
+.row > div {
+  padding-top: 10px
 }
