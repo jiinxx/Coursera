@@ -51,9 +51,15 @@
 }
 section {
   background-color: #e7e7e7;
-  height: 1000px;
   padding: 10px;
+}
+section p {
+  height: 700px;
 }
 section h3 {
   margin: 0;
+}
+@media (min-width: 768px) and (max-width: 991px)
+.col-sm-12 {
+    margin-top:10px;
 }
