@@ -110,5 +110,54 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("All greater than zero") {
+    new TestSets {
+      val s = forall(s3, x => x > 0)
+      assert(s, "All should be greater than zero")
+    }
+  }
 
+  test("Not all are equals to zero") {
+    new TestSets {
+      val s = forall(s3, x => x == 1)
+      assert(!s, "All should not be equal to one")
+    }
+  }
+
+  test("None smaler than three") {
+    new TestSets {
+      val s = forall(s3, x => x < 3)
+      assert(!s, "All should not be smaler than three")
+    }
+  }
+
+  test("All smaler than four") {
+    new TestSets {
+      val s = forall(s3, x => x < 4)
+      assert(s, "All should be smaler than four")
+    }
+  }
+
+  test("All greater than two") {
+    new TestSets {
+      val s = forall(s3, x => x > 2)
+      assert(s, "All should be greater than two")
+    }
+  }
+
+  test("All should be greater than four"){
+    new TestSets {
+      val mappedSet: Set = map(s3, x => x+2)
+      val greaterThanFour: Boolean = forall(mappedSet, x => x > 4)
+      assert(greaterThanFour, "All should be greater than four")
+    }
+  }
+
+  test("All should be equal to five"){
+    new TestSets {
+      val mappedSet: Set = map(s3, x => x+2)
+      val d = forall(mappedSet, x => x == 5)
+      assert(d, "All should eq to five")
+    }
+  }
 }
