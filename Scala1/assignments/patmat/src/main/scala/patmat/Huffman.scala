@@ -104,7 +104,7 @@ object Huffman {
   /**
    * Checks whether the list `trees` contains only one single code tree.
    */
-    def singleton(trees: List[CodeTree]): Boolean = times(trees)
+    def singleton(trees: List[CodeTree]): Boolean = trees.size == 1
   
   /**
    * The parameter `trees` of this function is a list of code trees ordered
@@ -118,7 +118,18 @@ object Huffman {
    * If `trees` is a list of less than two elements, that list should be returned
    * unchanged.
    */
-    def combine(trees: List[CodeTree]): List[CodeTree] = ???
+    def combine(trees: List[CodeTree]): List[CodeTree] =
+      trees match {
+        case Nil => Nil // empty
+        case item :: Nil => trees // one item
+        case first :: second :: rest => insert(makeCodeTree(first, second), rest)
+      }
+
+    def insert(item: Fork, trees: List[CodeTree]): List[CodeTree] = trees match {
+      case Nil => List(item)
+      case (first : Fork) :: rest => if (item.weight <= first.weight) item :: trees else first :: insert(item, rest)
+      case (first : Leaf) :: rest => if (item.weight <= first.weight) item :: trees else first :: insert(item, rest)
+    }
   
   /**
    * This function will be called in the following way:
@@ -137,7 +148,10 @@ object Huffman {
    *    the example invocation. Also define the return type of the `until` function.
    *  - try to find sensible parameter names for `xxx`, `yyy` and `zzz`.
    */
-    def until(xxx: ???, yyy: ???)(zzz: ???): ??? = ???
+  def until(s: List[CodeTree] => Boolean, c: List[CodeTree] => List[CodeTree])(trees: List[CodeTree]): CodeTree = {
+    if(!s(trees)) until(s,c) (c(trees))
+    else trees.head
+  }
   
   /**
    * This function creates a code tree which is optimal to encode the text `chars`.
