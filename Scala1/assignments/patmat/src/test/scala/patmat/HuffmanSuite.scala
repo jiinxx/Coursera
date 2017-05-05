@@ -17,6 +17,7 @@ class HuffmanSuite extends FunSuite {
 
   test("weight of a larger tree") {
     new TestTrees {
+      print(t1)
       assert(weight(t1) === 5)
     }
   }
@@ -49,6 +50,11 @@ class HuffmanSuite extends FunSuite {
     new TestTrees {
       assert(decode(t1, encode(t1)("ab".toList)) === "ab".toList)
     }
+  }
+
+  test("dest"){
+    val l = times(List('a', 'b', 'a'))
+    assert(l === List(('a',2), ('b',1)))
   }
 
 }

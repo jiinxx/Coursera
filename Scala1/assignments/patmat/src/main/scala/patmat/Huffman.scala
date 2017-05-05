@@ -1,6 +1,7 @@
 package patmat
 
 import common._
+import patmat.Huffman.weight
 
 /**
  * Assignment 4: Huffman coding
@@ -24,9 +25,19 @@ object Huffman {
   
 
   // Part 1: Basics
-    def weight(tree: CodeTree): Int = ??? // tree match ...
+    def weight(tree: CodeTree): Int = {
+      tree match {
+        case Fork(_,_,_,weight) => weight
+        case Leaf(_,weight) => weight
+      }
+    } // tree match ...
   
-    def chars(tree: CodeTree): List[Char] = ??? // tree match ...
+    def chars(tree: CodeTree): List[Char] = {
+      tree match {
+        case Fork(_,_,list,_) => list
+        case Leaf(char,_) => List(char)
+      }
+    } // tree match ...
   
   def makeCodeTree(left: CodeTree, right: CodeTree) =
     Fork(left, right, chars(left) ::: chars(right), weight(left) + weight(right))
@@ -69,7 +80,11 @@ object Huffman {
    *       println("integer is  : "+ theInt)
    *   }
    */
-    def times(chars: List[Char]): List[(Char, Int)] = ???
+    def times(chars: List[Char]): List[(Char, Int)] =
+      chars.groupBy(char => char)
+        .toSeq.sortBy(_._1)
+        .map(elem => (elem._1, elem._2.size))
+        .toList
   
   /**
    * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
@@ -78,12 +93,18 @@ object Huffman {
    * head of the list should have the smallest weight), where the weight
    * of a leaf is the frequency of the character.
    */
-    def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] = ???
+    def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] ={
+      def makeOrderdAcc(freqs: List[(Char, Int)]): List[Leaf] = {
+        if (freqs.isEmpty) List()
+        else Leaf(freqs.head._1, freqs.head._2) :: makeOrderedLeafList(freqs.tail)
+      }
+      makeOrderdAcc(freqs).sortBy(item => item.char)
+    }
   
   /**
    * Checks whether the list `trees` contains only one single code tree.
    */
-    def singleton(trees: List[CodeTree]): Boolean = ???
+    def singleton(trees: List[CodeTree]): Boolean = times(trees)
   
   /**
    * The parameter `trees` of this function is a list of code trees ordered
