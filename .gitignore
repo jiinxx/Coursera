@@ -51,4 +51,8 @@ CVS/
 # OS X
 .DS_Store
 
+# node
+node_modules/
+package-lock.json
+
 /db/target/
