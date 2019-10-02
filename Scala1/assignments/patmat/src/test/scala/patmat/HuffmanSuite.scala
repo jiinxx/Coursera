@@ -47,6 +47,12 @@ class HuffmanSuite extends FunSuite {
 
   test("decode and encode a very short text should be identity") {
     new TestTrees {
+      print(encode(t1)("ab".toList))
+    }
+  }
+
+  test("decode and encode a very short text should be identity2") {
+    new TestTrees {
       assert(decode(t1, encode(t1)("ab".toList)) === "ab".toList)
     }
   }
@@ -54,6 +60,10 @@ class HuffmanSuite extends FunSuite {
   test("dest"){
     val l = times(List('a', 'b', 'a'))
     assert(l === List(('a',2), ('b',1)))
+  }
+
+  test("createCodeTree") {
+    assert(createCodeTree(List('a','b','a')) === Fork(Leaf('a',2), Leaf('b',1), List('a','b'),3))
   }
 
 }
